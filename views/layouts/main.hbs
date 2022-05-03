@@ -1,0 +1,37 @@
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Expense Tracker</title>
+  <link rel='stylesheet' href='/css/bootstrap.css' />
+  <link rel='stylesheet' href='/css/all.css' />
+  <link rel='stylesheet' href='/css/expense.css' />
+  <link rel='stylesheet' href='/css/solid.css' />
+
+</head>
+
+<body>
+
+  <nav class='navbar navbar-expand-lg navbar-light' style='background-color: #adb5bd;'>
+    <div class='container-fluid'>
+      <a class='navbar-brand' href='/'><strong>{{#if user }}{{user.name}}的{{/if}}記帳本</strong></a>
+      {{#if user}}
+      <div class='d-fex justify-content-end'>
+        <a class='btn btn-warning' href='/users/changePassword'><strong>更改密碼</strong></a>
+        <a class='btn btn-danger' href='/users/logout'><strong>登出</strong></a>
+      </div>
+      {{else}}
+      <a class='btn btn-primary' href='/users/login'><strong>登入</strong></a>
+      {{/if}}
+    </div>
+  </nav>
+
+  {{{body}}}
+  <script src='/js/popper.js'></script>
+  <script src='/js/bootstrap.js'></script>
+  <script src='/js/all.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+{
+  "expenses": [
+    {
+      "id": 1,
+      "name": "午餐",
+      "date": "2019-04-23",
+      "amount": "60",
+      "user_id": 1,
+      "category_id": 4
+    },
+    {
+      "id": 2,
+      "name": "晚餐",
+      "date": "2019-04-23",
+      "amount": "60",
+      "user_id": 1,
+      "category_id": 4
+    },
+    {
+      "id": 3,
+      "name": "捷運",
+      "date": "2019-04-23",
+      "amount": "120",
+      "user_id": 1,
+      "category_id": 2
+    },
+    {
+      "id": 4,
+      "name": "電影：驚奇隊長",
+      "date": "2019-04-23",
+      "amount": "220",
+      "user_id": 2,
+      "category_id": 3
+    },
+    {
+      "id": 5,
+      "name": "租金",
+      "date": "2019-04-01",
+      "amount": "25000",
+      "user_id": 1,
+      "category_id": 1
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{{! grid system }}
+<div class='container mt-3 col-8'>
+  {{! dropdown list }}
+  <div class='row mb-3'>
+    <div class='col-8'>
+      <form action='/'>
+        <select class='form-select' id='categoryId' name='categoryId' onchange='this.form.submit()'>
+          <option value=''>請選擇類別</option>
+          {{#each categories}}
+          <option value='{{this._id}}' {{this.selected}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </form>
+    </div>
+  </div>
+  <div class='row mb-3'>
+    <div class='col-8 d-flex flex-row justify-content-between'>
+      <div>總金額：</div>
+      <div>
+        <h1>{{#if
+          totalAmount
+          }}{{totalAmount}}{{else}}0{{/if}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class='row mb-3'>
+    <div class='col'>
+      {{#each expenses}}
+      <div class='d-flex align-items-center'>
+        <div class='col-8 bd-highlight  text-dark' {{#if this.bgColor}} style="background-color:{{this.bgColor}};"
+          {{/if}}>
+          <div class='row'>
+            <div class='col-2 d-flex align-items-center'>
+              <i class='{{this.categoryId.icon}} fa-2xl ps-4' style="color: #000000;"></i>
+            </div>
+            <div class='col-6 ps-3 py-2'>
+              <div class='col'>{{this.name}}</div>
+              <div class='col'>{{this.date}}</div>
+            </div>
+            <div class='col d-flex flex-row align-items-center justify-content-end'>
+              <h3 class="m-0 pe-4">{{this.amount}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class='col-2 bd-highlight d-flex justify-content-center'>
+          <a href='/expenses/{{this._id}}/edit' class='btn btn-primary'>修改</a>
+        </div>
+        <form action='/expenses/{{this._id}}?_method=DELETE' method='POST' class='col-2 m-0 d-flex  '>
+          {{!-- modal button --}}
+          <button type='button' class='btn btn-danger' data-bs-toggle="modal" data-bs-target="#deleteModal">刪除</button>
+          <!-- Modal -->
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="color: red;">刪除警示！</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  請確認是否要刪除這筆消費記錄？此筆消費記錄刪除後將無法回復！
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                  <button type="submit" class="btn btn-danger">刪除</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class='row mt-5'>
+    <div class='col-8 d-flex justify-content-center'>
+      <a href='/expenses/new' class='btn btn-success'>新增項目</a>
+    </div>
+  </div>
+</div>

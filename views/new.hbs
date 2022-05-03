@@ -1,0 +1,45 @@
+<div class='container mt-3'>
+  <div class='row justify-content-center'>
+    <div class='col-6'>
+      <form action='/expenses/new' method='POST'>
+        <div class='row mb-3'>
+          <div class='p-2 bd-highlight col-3'>
+            *必填欄位</div>
+          <div class='p-2 bd-highlight col text-center'>請輸入你的支出</div>
+        </div>
+        <div class='row mb-3 d-flex align-items-center justify-content-center'>
+          <label for='name' class='col-3 p-2 col-form-label'>名稱*：</label>
+          <div class='col-9 p-2'>
+            <input type='text' class='form-control' id='name' placeholder='請輸入名稱' name='name' required />
+          </div>
+        </div>
+        <div class='row mb-3 d-flex align-items-center justify-content-center'>
+          <label for='date' class='col-3 p-2 col-form-label'>日期*：</label>
+          <div class='col-9 p-2'>
+            <input type='date' class='form-control' id='date' name='date' value='{{date}}' required />
+          </div>
+        </div>
+        <fieldset class='row mb-3 d-flex align-items-center justify-content-center'>
+          <legend class='col-3 p-2 col-form-label' for='autoSizingSelect'><label for='category'>類別* :</label></legend>
+          <div class='col-9 p-2'>
+            <select class='form-select' id='categoryId' name='categoryId' required>
+              <option value=''>請選擇類別</option>
+              {{#each categories}}
+              <option value='{{this._id}}'>{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </fieldset>
+        <div class='row mb-3 d-flex align-items-center justify-content-center'>
+          <label for='amount' class='col-3 p-2 col-form-label'>支出*：</label>
+          <div class='col-9 p-2'>
+            <input type='number' class='form-control' id='amount' min='0' placeholder='0' name='amount' required />
+          </div>
+        </div>
+        <div class='row mb-3 p-2 d-flex justify-content-end'>
+          <button type='submit' class='btn btn-success col-9'>新增支出</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
