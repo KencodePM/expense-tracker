@@ -65,6 +65,3 @@ Start project development
 * Bootstrap 5.1.3
 * popperjs 2.10.2
 * Font-awesome 6.1.1
-
-# Contributor
-[jameshoo123](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)
